@@ -1,0 +1,160 @@
+.main-container {
+    border: solid 5px #ffffff;
+    border-radius: 26px;
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+    animation: containerFadeIn 1s ease-out forwards, borderPulse 4s infinite ease-in-out;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Responsive breakpoints */
+@media screen and (max-width: 1400px) {
+    .main-container {
+        padding: 18px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .main-container {
+        border-width: 4px;
+        padding: 16px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .main-container {
+        border-width: 4px;
+        padding: 14px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main-container {
+        border-width: 3px;
+        padding: 12px;
+        border-radius: 20px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .main-container {
+        border-width: 2px;
+        padding: 10px;
+        border-radius: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main-container {
+        border-width: 2px;
+        padding: 8px;
+        border-radius: 15px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .main-container {
+        border-width: 1px;
+        padding: 6px;
+        border-radius: 12px;
+    }
+}
+
+/* Component transition animations */
+#report-section {
+  position: relative;
+  min-height: 500px;
+  width: 100%;
+  margin-top: -200px;
+}
+
+.fade-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 500ms, transform 500ms;
+}
+
+.fade-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 500ms, transform 500ms;
+}
+
+/* Button animation */
+.send-reports-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.send-reports-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.4s ease;
+}
+
+.send-reports-btn:hover::after {
+  left: 100%;
+}
+
+.arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.send-reports-btn:hover .arrow-icon {
+  transform: translateX(5px);
+}
+
+@media screen and (max-width: 768px) {
+  #report-section {
+    min-height: 400px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #report-section {
+    min-height: 350px;
+  }
+}
+
+/* Add more advanced animations */
+@keyframes borderPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  }
+}
+
+@keyframes containerFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

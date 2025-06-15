@@ -1,0 +1,891 @@
+.report-making {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(25px, 5vw, 60px) clamp(12px, 3vw, 25px);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  background: transparent;
+}
+
+.report-making-container {
+  display: flex;
+  width: 100%;
+  max-width: 1600px;
+  height: max-content;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  gap: clamp(20px, 4vw, 50px);
+  flex-wrap: wrap;
+  overflow: visible;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+.image-section {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  height:1400px;
+  animation: floatIn 1s ease-out forwards;
+}
+
+@keyframes floatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.report-making-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: clamp(12px, 2vw, 20px);
+  overflow: hidden;
+  z-index: 3;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              margin 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.report-making-image img {
+  /* Increase the scale for a larger image */
+  transform: scale(1.2);
+}
+
+.report-making-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15) 0%, rgba(110, 123, 251, 0.08) 100%); */
+  z-index: 2;
+  opacity: 0.7;
+  pointer-events: none;
+  animation: pulseGlow 8s infinite alternate ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.report-making-image img {
+  object-fit: cover;
+  margin-top: clamp(-15px, -2vw, -30px);
+  height: clamp(400px, 60vw, 650px);
+  /* Removed transform: scale(0.9); to avoid overriding the previous scale */
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+  will-change: transform;
+}
+
+
+.report-making-content {
+  border-radius: clamp(20px, 3vw, 30px);
+  padding: clamp(25px, 4vw, 40px) clamp(20px, 3vw, 35px);
+  margin-top: clamp(0px, 1vw, 10px);
+  display: flex;
+  border: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  max-width: 700px;
+  min-width: 600px;
+  animation: slideUp 0.8s 0.3s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.report-making-content:hover {
+  transform: translateY(-5px) scale(1.01);
+}
+
+.report-making-content::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  /* background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%); */
+  transform: rotate(30deg);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.report-making-content:hover::before {
+  opacity: 1;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  min-width: 100px;
+  width: 100%;
+  padding: 20px;
+  border-radius: 25px;
+  border: solid 2px rgb(255, 255, 255);
+  gap: clamp(10px, 1.5vw, 15px);
+  position: relative;
+  z-index: 2;
+}
+
+.text-container h2 {
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  margin-bottom: 10px;
+  color: #2d2d2d;
+  font-weight: 600;
+}
+
+.file_heading {
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 2px;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 8px;
+}
+
+.file_heading::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 80%;
+  background: linear-gradient(to bottom, #9095e4, #6e7bfb);
+  border-radius: 2px;
+}
+.input-container {
+  width: 100%;
+  max-width: 400px;
+  min-height: clamp(50px, 5vw, 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(8px, 1.2vw, 12px);
+  cursor: pointer;  padding: clamp(12px, 2vw, 20px);
+  border-radius: clamp(10px, 1.4vw, 14px);  
+  /* You can change the background color here - using rgba for transparency */
+  background: rgba(224, 224, 224, 0.2); /* Semi-transparent white background */
+  /* Add backdrop-filter for blur effect */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* For Safari support */
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;  font-weight: 500;
+  color: #000000;
+  /* You can adjust or remove box shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* Change border style here - width, style, color */
+  border: 2px solid rgba(255, 255, 255, 0.7); /* Dashed purple border */
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 0.5s ease-out forwards;
+  will-change: transform;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0.8; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.input-container:hover {
+  transform: translateY(-3px) scale(1.01);
+  background: rgba(255, 255, 255, 0.3); /* Slightly more opaque on hover */
+  border-color: rgb(255, 255, 255); /* Solid color on hover */
+  backdrop-filter: blur(10px); /* Increased blur on hover */
+  -webkit-backdrop-filter: blur(10px);
+}
+.input-container:hover .facloudarrowup {
+  transform: translateY(-3px) scale(1.01);
+  background: transparent;
+  color: #222b6b;
+  transform: scale(1.15) translateY(-2px);
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.3));
+}
+
+
+
+.input-container:active {
+  transform: translateY(0) scale(0.98);
+  border-color: rgba(106, 90, 205, 0.8);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.input-container::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  background: rgba(199, 199, 199, 0.4);
+  transform: rotate(30deg);
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  filter: blur(2px);
+}
+
+.input-container:hover::after {
+  left: 120%;
+}
+
+.input-container.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.input-container.loading::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(105, 105, 105, 0) 0%,
+    rgba(243, 235, 235, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  z-index: 1;
+}
+
+/* Sequential fade-in animations for input containers */
+.text-container > .input-container:nth-of-type(1) { animation-delay: 0.1s; }
+.text-container > .input-container:nth-of-type(2) { animation-delay: 0.2s; }
+.text-container > .input-container:nth-of-type(3) { animation-delay: 0.3s; }
+.text-container > .input-container:nth-of-type(4) { animation-delay: 0.4s; }
+.text-container > .input-container:nth-of-type(5) { animation-delay: 0.5s; }
+
+.facloudarrowup {
+  font-size: clamp(1.5rem, 2vw, 1.8rem);
+  color: #4a4eaf;
+  margin-top: 4px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+}
+
+/* Accessibility focus styles */
+.input-container:focus-within {
+  outline: 2px solid #4a4eaf;
+  box-shadow: 0 0 0 4px rgba(74, 78, 175, 0.2);
+}
+
+/* Improved scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* Better touch response for mobile */
+@media (hover: none) {
+  .input-container {
+    transition: transform 0.2s ease;
+  }
+  
+  .input-container:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1700px) {
+  .report-making-container {
+    max-width: 1400px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .report-making-container {
+    max-width: 1200px;
+  }
+  
+  .image-section {
+    max-width: 650px;
+  }
+  
+  .report-making-image {
+    max-width: 650px;
+  }
+  
+  .report-making-image img {
+    height: 600px;
+  }
+  
+  .report-making-content {
+    max-width: 450px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .report-making-container {
+    gap: 40px;
+  }
+  
+  .image-section {
+    max-width: 550px;
+  }
+  
+  .report-making-image {
+    max-width: 550px;
+    margin-top: -180px;
+  }
+  
+  .report-making-image img {
+    height: 550px;
+  }
+  
+  .report-making-content {
+    max-width: 430px;
+    padding: 35px 30px;
+  }
+  
+  .input-container {
+    max-width: 380px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .image-section {
+    max-width: 520px;
+  }
+  
+  .report-making-image {
+    margin-top: -150px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .report-making {
+    padding: clamp(30px, 5vw, 50px) clamp(15px, 2vw, 20px);
+    min-height: auto;
+  }
+  
+  .report-making-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .image-section {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .report-making-image {
+    max-width: 500px;
+    margin-top: -50px;
+    margin-left: 0;
+    animation: floatInMobile 1s ease-out forwards;
+  }
+  
+  @keyframes floatInMobile {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .report-making-image img {
+    height: 500px;
+    margin-top: 0;
+    object-position: top center;
+  }
+  
+  .report-making-content {
+    max-width: 500px;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  /* Responsive styles for back button */
+  .back-button-container {
+    padding: 15px 0;
+  }
+  
+  .back-button {
+    padding: 10px 18px;
+    font-size: 0.95rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .report-making {
+    padding: clamp(25px, 4vw, 40px) clamp(12px, 2vw, 15px);
+  }
+
+  .report-making-container {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .image-section {
+    max-width: 450px;
+  }
+
+  .report-making-image {
+    max-width: 450px;
+    margin-top: -30px;
+  }
+
+  .report-making-image img {
+    width: 350px;
+    height: 450px;
+    margin-left: 0;
+  }
+
+  .report-making-content {
+    max-width: 90%;
+    padding: clamp(25px, 3vw, 30px) clamp(20px, 2.5vw, 25px);
+  }
+  
+  /* Responsive styles for back button */
+  .back-button-container {
+    padding: 12px 0;
+  }
+  
+  .back-button {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    min-width: 180px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .report-making {
+    padding: clamp(20px, 3vw, 30px) clamp(10px, 1.5vw, 12px);
+  }
+  
+  .image-section {
+    max-width: 400px;
+  }
+  
+  .report-making-image {
+    max-width: 400px;
+    margin-top: -20px;
+  }
+  
+  .report-making-image img {
+    width: 320px;
+    height: 400px;    transform: scale(0.95);
+  }
+  
+  .report-making-content {
+    padding: clamp(20px, 2.5vw, 25px) clamp(15px, 2vw, 20px);
+  }
+  
+  .input-container {
+    padding: clamp(12px, 1.5vw, 15px);
+    min-height: 55px;
+  }
+  
+  .text-container h2 {
+    font-size: 1.4rem;
+  }
+  
+  .file_heading {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .report-making {
+    padding: clamp(15px, 2.5vw, 25px) clamp(8px, 1vw, 10px);
+  }
+  
+  .image-section {
+    max-width: 340px;
+  }
+  
+  .report-making-image {
+    max-width: 340px;
+    margin-top: 0;
+  }
+  
+  .report-making-image img {
+    width: 280px;
+    height: 350px;
+  }
+  
+  .report-making-content {
+    padding: clamp(18px, 2.2vw, 22px) clamp(15px, 1.8vw, 18px);
+    border-radius: 20px;
+  }
+  
+  .input-container {
+    padding: clamp(10px, 1.2vw, 12px);
+    min-height: 50px;
+    border-radius: 10px;
+  }
+  
+  .facloudarrowup {
+    font-size: 1.6rem;
+  }
+  
+  /* Responsive styles for back button */
+  .back-button-container {
+    padding: 10px 0;
+  }
+  
+  .back-button {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    min-width: 160px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .image-section {
+    max-width: 300px;
+  }
+  
+  .report-making-image {
+    max-width: 300px;
+  }
+  
+  .report-making-image img {
+    width: 250px;
+    height: 320px;
+  }
+  
+  .report-making-content {
+    padding: clamp(15px, 2vw, 20px) clamp(12px, 1.5vw, 15px);
+  }
+  
+  .text-container h2 {
+    font-size: 1.3rem;
+  }
+  
+  .input-container {
+    padding: clamp(8px, 1vw, 10px);
+    gap: 8px;
+    min-height: 45px;
+  }
+  
+  .facloudarrowup {
+    font-size: 1.5rem;
+  }
+  
+  .file_heading {
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 320px) {
+  .image-section {
+    max-width: 260px;
+  }
+
+  .report-making-image {
+    max-width: 260px;
+  }
+  
+  .report-making-image img {
+    width: 220px;
+    height: 290px;
+  }
+  
+  .report-making-content {
+    padding: 15px 12px;
+  }
+  
+  .file_heading {
+    font-size: 0.8rem;
+  }
+  
+  .input-container {
+    min-height: 40px;
+  }
+  
+  .facloudarrowup {
+    font-size: 1.4rem;
+  }
+}
+
+/* Updated back-button-container to accommodate two buttons */
+.back-button-container {
+  padding: 20px 0 10px;
+  margin-top: -230px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Add gap between buttons */
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap; /* Allows buttons to wrap on smaller screens */
+}
+
+/* Submit button styling */
+.submit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #6a79f5, #6e11cb);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  min-width: 200px;
+  box-shadow: 0 4px 15px rgba(106, 121, 245, 0.3);
+}
+
+.submit-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(106, 121, 245, 0.4);
+}
+
+.submit-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(106, 121, 245, 0.3);
+}
+
+.submit-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.6s ease;
+}
+
+.submit-button:hover::after {
+  left: 100%;
+}
+
+.submit-button svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.submit-button:hover svg {
+  transform: translateY(-3px);
+}
+
+/* Responsive styles for buttons */
+@media screen and (max-width: 768px) {
+  .back-button-container {
+    flex-direction: row;
+    padding: 12px 0;
+    margin-top: -200px;
+  }
+  
+  .back-button, .submit-button {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    min-width: 160px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .back-button-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: -180px;
+  }
+  
+  .back-button, .submit-button {
+    width: 80%;
+    max-width: 250px;
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .back-button-container {
+    margin-top: -150px;
+  }
+  
+  .back-button, .submit-button {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    min-width: 140px;
+  }
+}
+
+/* Accessibility improvements */
+.input-container:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(100, 116, 239, 0.5);
+}
+
+/* Back button styling */
+.back-button-container {
+  padding: 20px 0 10px;
+  margin-top: -230px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: transparent;
+  border: 2px solid rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #000000;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  min-width: 200px;
+  
+}
+
+.back-button:hover {
+  transform: translateY(-3px);
+  border-color: #000000;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.back-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.back-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+  transition: all 0.6s ease;
+}
+
+.back-button:hover::after {
+  left: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  .back-button {
+    border-color: rgba(0, 0, 0, 0.8);
+    color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(8px);
+  }
+  
+  .back-button:hover {
+    border-color: rgb(0, 0, 0);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+  }
+  
+  .back-button::after {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  }
+}
+
+/* Responsive styles for back button */
+@media screen and (max-width: 992px) {
+  .back-button-container {
+    padding: 15px 0;
+  }
+  
+  .back-button {
+    padding: 10px 18px;
+    font-size: 0.95rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .back-button-container {
+    padding: 12px 0;
+  }
+  
+  .back-button {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    min-width: 180px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .back-button-container {
+    padding: 10px 0;
+  }
+  
+  .back-button {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    min-width: 160px;
+  }
+}

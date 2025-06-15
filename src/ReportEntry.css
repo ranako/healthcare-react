@@ -1,0 +1,407 @@
+/* Main container for the report entry section */
+.report-entry {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+/* Container for image and content sections */
+.report-entry-container {
+  display: flex;
+  width: 100%;
+  max-width: 1800px;
+  height: max-content;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  overflow: visible;
+}
+
+
+/* Image container with custom scaling and positioning */
+.report-entry-image{
+  display: flex;
+  align-items:center ;
+  justify-content: center;
+  position: relative;
+  width: 900px;
+  height: 850px;
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 3;
+  /* Flip the image horizontally and adjust position */
+  transform: scaleX(-1.1);
+  margin-top: 250px;
+  margin-left: -100px;
+}
+
+/* Style for the health image */
+.report-entry-image img {
+  object-fit: cover;
+  margin-top: 640px;
+  height: 800px;
+  transform: scale(1.9);
+}
+
+/* Content box for text and button */
+.report-entry-content {
+  border-radius: 30px;
+  background-color: transparent;
+  border: solid 1px rgba(255, 255, 255, 0.671);
+  box-shadow: 10px 10px 30px rgba(255, 255, 255, 0.2);
+  padding: 30px 28px;
+  display: flex;
+  min-width: 450px;
+  max-width: 600px;
+  min-height: 500px;
+  max-height: 600px;
+  margin-right: 400px;
+  margin-top: 250px;
+  transition: all 0.3s ease;
+}
+
+/* Container for text elements */
+.text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Paragraph styles within text content */
+.text-content p {
+  line-height: 2;
+  color: #222;
+  font-family: 'unbound-regular', sans-serif;
+  font-size: 20px;
+}
+
+/* Button styles within text button container */
+.text-button {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.text-button button {
+  background-color: #111;
+  color: #fff;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Button hover effect */
+.text-button button:hover {
+  background-color: #333;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.text-button button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Button icon animation */
+.text-button button .arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.text-button button:hover .arrow-icon {
+  transform: translateX(5px);
+}
+
+/* Button animation effect */
+.text-button button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.6s ease;
+}
+
+.text-button button:hover::after {
+  left: 100%;
+}
+
+/* Extra Large screens */
+@media screen and (max-width: 1600px) {
+  .report-entry-container {
+    gap: 200px;
+  }
+
+  .report-entry-image {
+    width: 800px;
+    height: 800px;
+  }
+}
+
+/* Large screens - Initial adjustments */
+@media screen and (max-width: 1400px) {
+  .report-entry-container {
+    gap: 150px;
+  }
+
+  .report-entry-image {
+    width: 700px;
+    height: 700px;
+  }
+
+  .radial-circle {
+    transform: scale(1.3);
+    margin-left: 120px;
+  }
+}
+
+/* Medium-Large screens */
+@media screen and (max-width: 1200px) {
+  .report-entry-container {
+    gap: 100px;
+  }
+
+  .report-entry-image {
+    width: 650px;
+    height: 650px;
+  }
+
+  .report-entry-content {
+    max-width: 400px;
+  }
+  
+  .radial-circle {
+    transform: scale(1.2);
+    margin-left: 100px;
+  }
+}
+
+/* Tablet - Adjust for medium-sized screens */
+@media screen and (max-width: 1024px) {
+  .report-entry {
+    flex-direction: column;
+    padding: 40px 20px;
+    min-height: auto;
+  }
+
+  .report-entry-container {
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .report-entry-image {
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+    transform: scaleX(-1); /* Less aggressive flip */
+    margin-left: 0;
+  }
+
+  .report-entry-image img {
+    width: 100%;
+    height: auto;
+    margin-top: 250px;
+    transform: scale(1.5);
+    object-fit: cover;
+  }
+
+  .radial-circle {
+    width: 250px;
+    height: 250px;
+    transform: scale(1);
+    margin: 30px auto 0 auto;
+  }
+
+  .report-entry-content {
+    max-width: 80%;
+    width: 100%;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    height: auto;
+  }
+
+  .text-container {
+    gap: 30px;
+  }
+
+  .text-content p {
+    font-size: 18px;
+  }
+
+  .text-button button {
+    font-size: 18px;
+  }
+}
+
+/* Smaller tablets */
+@media screen and (max-width: 768px) {
+  .report-entry-image {
+    width: 500px;
+    height: 500px;
+  }
+
+  .report-entry-image img {
+    margin-top: 200px;
+    transform: scale(1.3);
+  }
+
+  .radial-circle {
+    width: 200px;
+    height: 200px;
+  }
+
+  .text-content p {
+    font-size: 16px;
+  }
+
+  .report-entry-content {
+    max-width: 90%;
+    padding: 25px;
+  }
+}
+
+/* Mobile - Full responsiveness */
+@media screen and (max-width: 600px) {
+  .report-entry {
+    padding: 30px 15px;
+  }
+
+  .report-entry-container {
+    gap: 30px;
+  }
+
+  .image-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .report-entry-image {
+    width: 100%;
+    max-width: 350px;
+    height: 350px;
+    transform: none;
+    margin: 0;
+  }
+
+  .report-entry-image img {
+    margin-top: 120px;
+    width: 100%;
+    transform: scale(1.1);
+  }
+
+  /* Hide radial circle on small screens as requested */
+  .radial-circle {
+    display: none;
+  }
+
+  .report-entry-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .text-content p {
+    font-size: 14px;
+  }
+
+  .text-button button {
+    font-size: 16px;
+    padding: 12px 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .report-entry {
+    padding: 25px 12px;
+  }
+  
+  .report-entry-image {
+    max-width: 320px;
+    height: 320px;
+  }
+  
+  .report-entry-content {
+    padding: 18px;
+    border-radius: 18px;
+  }
+  
+  .text-content p {
+    font-size: 13.5px;
+    line-height: 1.4;
+  }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 400px) {
+  .report-entry {
+    padding: 20px 10px;
+  }
+  
+  .report-entry-image {
+    max-width: 280px;
+    height: 280px;
+  }
+  
+  .report-entry-image img {
+    margin-top: 100px;
+    transform: scale(1);
+  }
+  
+  .report-entry-content {
+    padding: 16px;
+    border-radius: 16px;
+  }
+  
+  .text-content p {
+    font-size: 13px;
+    line-height: 1.35;
+  }
+  
+  .text-button button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+/* Very small devices */
+@media screen and (max-width: 360px) {
+  .report-entry-image {
+    max-width: 240px;
+    height: 240px;
+  }
+  
+  .report-entry-image img {
+    margin-top: 80px;
+  }
+  
+  .text-content p {
+    font-size: 12px;
+  }
+  
+  .text-button button {
+    font-size: 13px;
+    padding: 8px;
+  }
+}
