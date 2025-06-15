@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import ReportEntry from './ReportEntry'
-import Hero from './Hero'
+import Hero from './hero'
 import Fotter from './footer'
 import Navbar from './Navbar'
 import ReportMaking from './ReportContent'
