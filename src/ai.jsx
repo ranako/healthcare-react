@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./ai.css";
-import picture from "./assets/picture.png";
 import { Bar, Line, Pie, Radar } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
